@@ -30,8 +30,8 @@ export default createComponent({
       description: 'サンプルページです。',
       type: 'article'
     }
-    const url: string = context.root.$route.path
-    const head = PageMeta(pageMeta, url)
+    const path: string = context.root.$route.path
+    const head: MetaInfo = PageMeta(pageMeta, path)
     return {
       head
     }

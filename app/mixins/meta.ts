@@ -2,13 +2,14 @@
 import { MetaInfo } from 'vue-meta'
 import { HeadInfo } from '@/types/headInfo'
 
-export default (pageMeta: HeadInfo, url: string) => {
+export default (pageMeta: HeadInfo, path: string) => {
   const title: string = pageMeta.title || ('site_name' as string)
-  const description: string = pageMeta.description || ('site_description' as string)
+  const description: string =
+    pageMeta.description || ('site_description' as string)
   const type: string = pageMeta.type || ('website' as string)
 
   const pageHead: MetaInfo = {
-    title: title,
+    title,
     meta: [
       {
         hid: 'description',
@@ -33,7 +34,7 @@ export default (pageMeta: HeadInfo, url: string) => {
       {
         hid: 'og:url',
         property: 'og:url',
-        content: `${process.env.BASE_URL}${url}`
+        content: `${process.env.BASE_URL}${path}`
       },
       {
         hid: 'twitter:title',
@@ -50,7 +51,7 @@ export default (pageMeta: HeadInfo, url: string) => {
       {
         hid: 'canonical',
         rel: 'canonical',
-        href: `${process.env.BASE_URL}${url}`
+        href: `${process.env.BASE_URL}${path}`
       }
     ]
   }
